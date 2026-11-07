@@ -18,5 +18,10 @@
     "sast",
     "code-graph",
     "skills"
-  ]
+  ],
+  "displayName": "Bravos",
+  "documentationUrl": "https://docs.bugb.io/bravos/",
+  "supportUrl": "https://www.bugb.io/contact",
+  "privacyPolicyUrl": "https://www.bugb.io/privacy",
+  "termsOfServiceUrl": "https://www.bugb.io/terms"
 }
