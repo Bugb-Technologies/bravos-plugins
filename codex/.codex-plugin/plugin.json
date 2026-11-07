@@ -36,6 +36,8 @@
       "Where do I start on security here?",
       "Threat-model this repository",
       "Is this PR safe to open?"
-    ]
+    ],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

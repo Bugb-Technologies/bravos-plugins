@@ -20,6 +20,7 @@
     "skills"
   ],
   "displayName": "Bravos",
+  "logo": "assets/icon.png",
   "suggestedPrompts": [
     "Where do I start on security here?",
     "Threat-model this repository",
