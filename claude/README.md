@@ -1,6 +1,6 @@
 # Bravos plugins
 
-Bravos 1.0.3 for the coding agent you already use. Each plugin carries the same 14
+Bravos 1.1.0 for the coding agent you already use. Each plugin carries the same 14
 skills and the guardlink MCP server; the session-start briefing loads by itself
 where the agent supports it.
 
@@ -27,13 +27,20 @@ hooks and MCP wiring for every agent it finds, and commits them with the code.
 
 ## Where data goes
 
-Bravos runs on your machine, and the plugin sends nothing to Bugb. Its skills
-and the CLI they call reach only these places, each one started by you or by a
-skill you run:
+Bravos runs on your machine. Its skills, its session hook and the CLI they call
+reach only these places:
 
-- **account.bugb.io:** `bravos account activate` (signing in once in the browser
-  to get a licence) and `bravos setup` (downloading the SAST analyzer and the code
-  graph with your licence). Your licence goes there; your code does not.
+- **account.bugb.io:**
+  - `bravos account activate` signs this machine in once, in the browser. The
+    portal records the machine under its name (its hostname), so you and your
+    team's owners and admins can see it and sign it out.
+  - While the machine is signed in, Bravos renews its licence there automatically,
+    every few days: the session hook or the CLI sends the machine's secret, and the
+    portal records the time, your CLI version and a one-way digest of your IP
+    address. Licences for CI and licences imported from a file are never renewed.
+  - `bravos setup` downloads the SAST analyzer and the code graph with your licence.
+
+  Your licence and machine details go there; your code does not.
 - **GitHub:** the session briefing uses `gh`, if it is installed and signed in, to
   list open pull requests in your repository. The CI workflows `bravos sync --ci`
   writes run on GitHub Actions in your own repository.

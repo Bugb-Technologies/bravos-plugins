@@ -1,6 +1,6 @@
 {
   "name": "bravos",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Bravos makes your coding agent work the threat model (guardlink), authorized pentests (cxg), the code graph and SAST, with the evidence kept in your repository. Needs the bravos CLI: npm install -g @bugb-technologies/bravos.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {

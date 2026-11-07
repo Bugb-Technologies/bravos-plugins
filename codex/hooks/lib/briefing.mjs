@@ -1,9 +1,10 @@
-// @comment -- "Pure text builder for the session-start briefing, collect() which gathers its read-only guardlink, git and gh facts concurrently under a shared deadline, and the runJson/runJsonAsync spawn wrappers; dependency-free so it can be copied verbatim into target repos."
+// @comment -- "Pure text builder for the session-start briefing, collect() which gathers its read-only guardlink, git and gh facts concurrently under a shared deadline (and renews a signed-in machine's device licence when it is due, through refresh.mjs — the one write it makes, to $BRAVOS_HOME only), and the runJson/runJsonAsync spawn wrappers; dependency-free so it can be copied verbatim into target repos."
 import { spawn, spawnSync } from 'node:child_process';
 import { accessSync, constants, readFileSync } from 'node:fs';
 import { basename, delimiter, dirname, join } from 'node:path';
 import { readProving } from './proving.mjs';
 import { planLine, status as licenceStatus } from './licence.mjs';
+import { refreshIfDue } from './refresh.mjs';
 import { readSast, sastAvailable, sastLine } from './sast.mjs';
 import { readSetup, setupLine } from './setup.mjs';
 import { memberCounts, readWorkspace, workspaceLines } from './workspace.mjs';
@@ -340,10 +341,12 @@ export async function collect(root, env, { deadlineMs = 20000, nextCount = 3 } =
   });
 
   const graphRun = probeGraph(root, env, Math.min(3000, first));
+  // A signed-in machine's device licence is renewed here when it is due, alongside the other facts and under a short timeout of its own; it fails open, so a slow or absent portal only means the held token is read as it is.
+  const renewal = refreshIfDue(env, { timeoutMs: Math.min(3000, first) }).catch(() => null);
   // At an app folder, each member's counts come from its own guardlink ci, alongside the rest.
   const workspace = readWorkspace(root);
   const countsRun = workspace?.isAppFolder && hasGuardlink ? memberCounts(workspace, runJsonAsync, env, first) : Promise.resolve(null);
-  const [facts, pr, graphState, workspaceCounts, ...gl] = await Promise.all([gitFacts, prRun, graphRun, countsRun, ...glRuns]);
+  const [facts, pr, graphState, workspaceCounts, , ...gl] = await Promise.all([gitFacts, prRun, graphRun, countsRun, renewal, ...glRuns]);
 
   let guardlink = 'missing';
   if (hasGuardlink) {
