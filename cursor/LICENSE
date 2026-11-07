@@ -1,0 +1,70 @@
+BRAVOS SOFTWARE LICENCE
+Version 1.0, 6 November 2026
+
+Copyright (c) 2026 BugB Technologies. All rights reserved.
+
+Bravos (the "Software") is proprietary software of BugB Technologies
+("BugB"). It is licensed, not sold. By installing or using the Software you
+agree to these terms. If you do not agree, do not install or use it.
+
+1. Free use
+   You may install and use the Software at no charge for the features of
+   the Free plan, as described at https://account.bugb.io/pricing.
+
+2. Paid features
+   The features the Software marks as Team features (at this version: the
+   pre-PR gate and autopilot, the CI and nightly workflows, scheduled
+   upkeep, multi-repository workspaces, campaigns, SAST and the code graph)
+   may be used only with a valid licence issued by BugB through
+   https://account.bugb.io, and only within the plan, seats and term that
+   licence states, including a trial.
+
+3. Restrictions
+   You may not, and may not let anyone else:
+   (a) copy the Software, except as needed to install and run it under
+       these terms;
+   (b) modify, adapt or create derivative works of the Software, except
+       that you may edit the files it writes into your own repositories
+       for your own internal use;
+   (c) remove, disable, bypass or tamper with any licence check, or use a
+       Team feature without a valid licence;
+   (d) redistribute, publish, sublicense, rent, lease, sell, or offer the
+       Software or any part of it as a service to others;
+   (e) reverse engineer the Software or the binaries it downloads, except
+       to the extent applicable law allows this despite this restriction;
+   (f) remove or alter any copyright or licence notice.
+
+4. Your content
+   The threat models, annotations, reports, templates and other output the
+   Software produces from your code belong to you. BugB claims no rights in
+   them.
+
+5. Third-party components
+   The Software depends on, and can install, third-party software
+   (including guardlink, cert-x-gen and open-source npm packages) that is
+   licensed under its own terms. Those terms govern those components.
+
+6. Termination
+   Your rights under these terms end automatically if you breach them. When
+   they end, you must stop using the Software and delete every copy.
+
+7. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE AND NON-INFRINGEMENT. Security testing can disturb
+   the systems it runs against; you are responsible for running it only
+   against systems you own or are authorised to test.
+
+8. Limitation of liability
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUGB IS NOT LIABLE FOR ANY
+   INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, OR LOSS OF DATA,
+   PROFITS OR BUSINESS, ARISING FROM THE SOFTWARE. BUGB'S TOTAL LIABILITY
+   IS LIMITED TO THE FEES YOU PAID FOR THE SOFTWARE IN THE TWELVE MONTHS
+   BEFORE THE CLAIM.
+
+9. Other agreements
+   If you have a separate written agreement with BugB that covers the
+   Software, such as an Enterprise order, that agreement prevails where it
+   differs from these terms.
+
+Questions: https://account.bugb.io/contact

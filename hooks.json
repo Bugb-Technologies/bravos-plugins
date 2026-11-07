@@ -1,0 +1,11 @@
+{
+  "bravos": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "node hooks/session-start.mjs --harness agy",
+        "timeout": 30
+      }
+    ]
+  }
+}

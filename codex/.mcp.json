@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "guardlink": {
+      "type": "stdio",
+      "command": "guardlink",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

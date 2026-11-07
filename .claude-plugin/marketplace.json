@@ -1,0 +1,18 @@
+{
+  "name": "bravos",
+  "owner": {
+    "name": "BugB Technologies",
+    "url": "https://www.bugb.io"
+  },
+  "description": "Threat model, pentests, code graph and SAST for your coding agent.",
+  "plugins": [
+    {
+      "name": "bravos",
+      "source": "./claude",
+      "description": "Bravos makes your coding agent work the threat model (guardlink), authorized pentests (cxg), the code graph and SAST, with the evidence kept in your repository. Needs the bravos CLI: npm install -g @bugb-technologies/bravos.",
+      "version": "1.0.3",
+      "category": "security",
+      "homepage": "https://docs.bugb.io/bravos/"
+    }
+  ]
+}

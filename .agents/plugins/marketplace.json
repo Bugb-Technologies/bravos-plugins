@@ -1,0 +1,20 @@
+{
+  "name": "bravos",
+  "interface": {
+    "displayName": "Bravos"
+  },
+  "plugins": [
+    {
+      "name": "bravos",
+      "source": {
+        "source": "local",
+        "path": "./codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    }
+  ]
+}

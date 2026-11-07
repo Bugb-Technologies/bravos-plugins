@@ -1,0 +1,50 @@
+# bravos starter scope for cxg pentest — loopback only.
+#
+# Copy to .guardlink/scope.yaml, commit it, and get it reviewed in a PR before any run.
+# Full field reference: `cxg pentest scope-init -o /tmp/reference-scope.yaml`.
+#
+# This starter allows only the read-mostly methods, a small budget, and no disposable-host
+# grants, so destructive probe classes stay limited to a loopback target. Widening any of
+# it is a decision for the person who owns the target, made in the reviewed PR.
+
+# The human's written authorization, in their own words, typed in the session that runs
+# the test. bravos never writes this line for them. Leave it empty until they do.
+authorization_attestation: ""
+
+# A strict bound: cxg refuses every method not listed, even with --destructive-ok. A test that
+# needs PUT, PATCH or DELETE needs them added here, in the reviewed PR, by the target's owner.
+method_allowlist: [GET, POST, HEAD, OPTIONS]
+
+# Empty means every path under --target. Narrow it to the routes under test.
+url_allowlist: []
+
+# Paths no run may touch, whatever the allowlist says.
+url_blocklist: []
+
+# Paths no run may touch without --destructive-ok. cxg replaces its built-in list with this one,
+# so it carries all nine of cxg's defaults; add to it, do not trim it. Single quotes keep each
+# backslash literal: in double quotes YAML reads \b as a backspace and the pattern matches nothing.
+destructive_patterns:
+  - '/delete[-_]?all\b'
+  - '/wipe\b'
+  - '/purge\b'
+  - '/drop[-_]?(?:db|database|table|all)\b'
+  - '/reset[-_]?(?:all|db|database)\b'
+  - '/destroy[-_]?all\b'
+  - '/admin/(?:teardown|format|nuke)\b'
+  - '/__truncate__\b'
+  - '/factory[-_]?reset\b'
+
+# Target host only.
+host_allowlist: []
+
+max_requests_per_endpoint: 20
+max_requests_total: 500
+request_interval_seconds: 0.2
+max_socket_connections: 5
+five_xx_streak_threshold: 5
+
+# Empty: destructive classes run against a loopback target only.
+disposable_host_grants: []
+
+brute_force_min_attempts: 20

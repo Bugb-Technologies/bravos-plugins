@@ -1,0 +1,41 @@
+{
+  "name": "bravos",
+  "version": "1.0.3",
+  "description": "Bravos makes your coding agent work the threat model (guardlink), authorized pentests (cxg), the code graph and SAST, with the evidence kept in your repository. Needs the bravos CLI: npm install -g @bugb-technologies/bravos.",
+  "author": {
+    "name": "BugB Technologies",
+    "url": "https://www.bugb.io"
+  },
+  "homepage": "https://docs.bugb.io/bravos/",
+  "repository": "https://github.com/Bugb-Technologies/bravos-plugins",
+  "license": "LicenseRef-Bravos-Software-Licence",
+  "keywords": [
+    "security",
+    "threat-modeling",
+    "guardlink",
+    "pentest",
+    "cxg",
+    "sast",
+    "code-graph",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Bravos",
+    "shortDescription": "Threat model, pentests, code graph and SAST for your coding agent.",
+    "longDescription": "Bravos makes your coding agent work the threat model (guardlink), authorized pentests (cxg), the code graph and SAST, with the evidence kept in your repository. Needs the bravos CLI: npm install -g @bugb-technologies/bravos.",
+    "developerName": "BugB Technologies",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://docs.bugb.io/bravos/",
+    "defaultPrompt": [
+      "Where do I start on security here?",
+      "Threat-model this repository",
+      "Is this PR safe to open?"
+    ]
+  }
+}
