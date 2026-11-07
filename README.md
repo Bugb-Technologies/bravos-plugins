@@ -25,6 +25,28 @@ Then install the plugin for your agent:
 You do not need a plugin: `bravos init` in a repository installs the same skills,
 hooks and MCP wiring for every agent it finds, and commits them with the code.
 
+## Where data goes
+
+Bravos runs on your machine, and the plugin sends nothing to Bugb. Its skills
+and the CLI they call reach only these places, each one started by you or by a
+skill you run:
+
+- **account.bugb.io:** `bravos account activate` (signing in once in the browser
+  to get a licence) and `bravos setup` (downloading the SAST analyzer and the code
+  graph with your licence). Your licence goes there; your code does not.
+- **GitHub:** the session briefing uses `gh`, if it is installed and signed in, to
+  list open pull requests in your repository. The CI workflows `bravos sync --ci`
+  writes run on GitHub Actions in your own repository.
+- **A test target you own:** `bravos-prove` and `bravos-recheck` send test
+  requests through cxg. Loopback by default; any other host only with a reviewed
+  `.guardlink/scope.yaml` and your own typed authorization naming it.
+- **A model API, only if you agree:** cxg can generate probes through a model API
+  you configure. The skill asks before it spends.
+- **npm and crates.io:** `bravos setup --tools` installs guardlink and cxg.
+
+The threat model, test results and reports stay in your repository. Bugb keeps
+nothing from your sessions.
+
 ## Plans
 
 The research loop is free for one researcher in one repository. The pre-PR gate
