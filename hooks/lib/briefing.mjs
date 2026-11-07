@@ -2,7 +2,7 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { accessSync, constants, readFileSync } from 'node:fs';
 import { basename, delimiter, dirname, join } from 'node:path';
-import { readProving } from './autopilot.mjs';
+import { readProving } from './proving.mjs';
 import { planLine, status as licenceStatus } from './licence.mjs';
 import { readSast, sastAvailable, sastLine } from './sast.mjs';
 import { readSetup, setupLine } from './setup.mjs';
